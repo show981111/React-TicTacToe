@@ -41,9 +41,9 @@ export class Game extends React.Component<GameProps, GameStates> {
     });
   }
 
-  jumpTo(step : number) {
+  jumpTo(step : number) { // jump to specific point in history
     this.setState({
-      stepNumber: step,
+      stepNumber: step, 
       xIsNext: (step % 2) === 0,
     });
   }
@@ -53,8 +53,8 @@ export class Game extends React.Component<GameProps, GameStates> {
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
 
-    const moves = history.map((step, move) => {
-      const desc = move ?
+    const moves = history.map((step, move) => { 
+      const desc = move ? // move works as an index in history array
         'Go to move #' + move :
         'Go to game start';
       return ( //set key to uniquely distinguish each item of list(like id)
@@ -75,8 +75,8 @@ export class Game extends React.Component<GameProps, GameStates> {
       <div className="game">
         <div className="game-board">
          <Board
-            squares={current.squares}
-            onClick={(i : number) => this.handleClick(i)}
+            squares={current.squares} 
+            onClick={(i : number) => this.handleClick(i)}// set board props
           />
         </div>
         <div className="game-info">
@@ -90,4 +90,4 @@ export class Game extends React.Component<GameProps, GameStates> {
 
 // ========================================
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
-root.render(<Game />);
+root.render(<Game />); // Game doesnt have any props so nothing to input

@@ -6,10 +6,10 @@ interface BoardProps {
     onClick : (i : number) => any;
 }
 
-interface BoardStates 
+interface BoardStates // State, component that should be updated
 {
-    squares : string[];
-    xIsNext: boolean,
+    squares : string[]; // store each square's status
+    xIsNext: boolean, // check if O or X 
 }
 export class Board extends React.Component <BoardProps, BoardStates>{
    
